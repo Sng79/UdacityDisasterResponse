@@ -8,15 +8,13 @@ The project includes web app where an emergency worker can input a new message a
 
 Project Components
 
-1. ETL Pipeline
-The process_data.py script to clean data (and ETL notebook):
+1. ETL Pipeline: The process_data.py script to clean data (and ETL notebook):
 - Loads the messages and categories datasets
 - Merges the two datasets
 - Cleans the data
 - Stores it in a SQLite database
 
-2. ML Pipeline
-The train_classifier.py (and ML Pipeline notebook) that writes a machine learning pipeline that:
+2. ML Pipeline: The train_classifier.py (and ML Pipeline notebook) that writes a machine learning pipeline that:
 
 - Loads data from the SQLite database
 - Splits the dataset into training and test sets
@@ -28,9 +26,10 @@ The train_classifier.py (and ML Pipeline notebook) that writes a machine learnin
 Dependencies
 Python 3.5+ (I used Python 3.7)
 Machine Learning Libraries: NumPy, SciPy, Pandas, Sciki-Learn
-Natural Language Process Libraries: NLTK
 SQLlite Database Libraqries: SQLalchemy
 Web App and Data Visualization: Flask, Plotly
+Natural Language Process Libraries: NLTK
+
 
 ### Instructions:
 1. Run the following commands in the project's root directory to set up your database and model.
