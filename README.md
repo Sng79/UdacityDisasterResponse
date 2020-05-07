@@ -24,7 +24,7 @@ Project Components
 - Exports the final model as a pickle file
 
 Dependencies
-Python 3.5+ (I used Python 3.7)
+Python 3.5 or above
 Machine Learning Libraries: NumPy, SciPy, Pandas, Sciki-Learn
 SQLlite Database Libraqries: SQLalchemy
 Web App and Data Visualization: Flask, Plotly
