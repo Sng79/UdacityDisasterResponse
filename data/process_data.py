@@ -1,9 +1,29 @@
+"""
+DATA
+Disaster Response Pipeline Project - Udacity
+    1) CSV file containing messages (disaster_messages.csv)
+    2) CSV file containing categories (disaster_categories.csv)
+    3) SQLite destination database (DisasterResponse.db)
+"""    
+
+#Load libraries 
 import sys
 import sqlite3
 import pandas as pd
 import numpy as np
 import sqlite3
 from sqlalchemy import create_engine
+
+
+#Load data function
+    """
+    
+    Arguments:
+        messages_filepath -> path to messages csv file
+        categories_filepath -> path to categories csv file
+    Output:
+        df -> Loaded data as pd.DataFrame
+    """
 
 def load_data(messages_filepath, categories_filepath):
     messages = pd.read_csv(messages_filepath)
@@ -15,6 +35,14 @@ def load_data(messages_filepath, categories_filepath):
     return df
 
 def clean_data(df):
+    """
+    Clean Data function
+    
+    Arguments:
+        df -> raw data Pandas DataFrame
+    Outputs:
+        df -> clean data Pandas DataFrame
+    """
 
 # Splits categories in dataframe and converts them into binary
     categories = df['categories'].str.split(';', expand=True)
@@ -53,6 +81,12 @@ def save_data(df, database_filename):
 
 
 def main():
+        """
+    Main Data Processing function implementing the pipeline:
+        1) Extracts data from .csv
+        2) Cleans data
+        3) Loads data to SQLite database
+    """
     if len(sys.argv) == 4:
 
         messages_filepath, categories_filepath, database_filepath = sys.argv[1:]
