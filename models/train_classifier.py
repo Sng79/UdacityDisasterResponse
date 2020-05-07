@@ -1,3 +1,4 @@
+#Load libraries
 import sys
 import nltk
 nltk.download('punkt')
@@ -21,7 +22,18 @@ from sklearn.metrics import classification_report
 from sklearn.model_selection import GridSearchCV
 import pickle
 
-
+#Load data 
+    """
+    Load the disaster response dataset from an sqlite database.
+    Returns
+    -------
+    X : A pd.Dataframe with a single column, “message” containing the message script
+        
+    Y : A pd.DataFrame with several columns with caegory names.
+    
+    columns
+        A list of category names (just the columns of Y)
+    """
 def load_data(database_filepath):
     engine = create_engine('sqlite:///'+ str(database_filepath))
     df = pd.read_sql ('SELECT * FROM Messagescategories', engine)
@@ -32,6 +44,8 @@ def load_data(database_filepath):
 
 
 def tokenize(text):
+    """Tokenization function that receives raw text as input. The function normalizes, remove stop words, stemmed them and lemmatized."""
+    
     #change to lower case format
      text = text.lower()
       # Remove punctuation characters
@@ -59,7 +73,7 @@ def build_model():
             'tfidf__use_idf':[True],
             }
     cv = GridSearchCV(pipeline, parameters)
-   
+   #return pipelne 
     return cv
 
 
