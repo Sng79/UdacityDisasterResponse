@@ -80,12 +80,11 @@ def save_data(df, database_filename):
 
 
 def main():
-"""
-    Main Data Processing function implementing the pipeline:
+    """Main Data Processing function implementing the pipeline:
         1) Extracts data from .csv
         2) Cleans data
         3) Loads data to SQLite database
- """
+    """
     if len(sys.argv) == 4:
 
         messages_filepath, categories_filepath, database_filepath = sys.argv[1:]
