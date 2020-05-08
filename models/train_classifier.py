@@ -23,17 +23,14 @@ from sklearn.model_selection import GridSearchCV
 import pickle
 
 #Load data 
-    """
+""" INPUT
     Load the disaster response dataset from an sqlite database.
-    Returns
-    -------
-    X : A pd.Dataframe with a single column, “message” containing the message script
-        
-    Y : A pd.DataFrame with several columns with caegory names.
-    
-    columns
+    OUTPUT  
+    X : A pd.Dataframe with a single column, “message” containing the message script        
+    Y : A pd.DataFrame with several columns with caegory names.  
+    Category_names: columns
         A list of category names (just the columns of Y)
-    """
+"""
 def load_data(database_filepath):
     engine = create_engine('sqlite:///'+ str(database_filepath))
     df = pd.read_sql ('SELECT * FROM Messagescategories', engine)
